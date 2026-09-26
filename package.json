@@ -1,6 +1,6 @@
 {
   "name": "@pipeworx/mcp-vendor-signals",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Vendor documentation and changelog change-tracking as ACCOUNT SIGNALS",
   "type": "module",
   "main": "src/index.ts",
@@ -26,7 +26,7 @@
     "@cloudflare/workers-types": "^4.20260405.1"
   },
   "pipeworx": {
-    "sourceHash": "v1-ef402522401f8fef7c66edb5f1a0a78decfdb4fb82a16e3f18d986da624228f1",
-    "sourceCommit": "b0fb3c31386cf0256dcf1e2f1b3440435a87ec35"
+    "sourceHash": "v1-5d2632c74c1cffddd72e784624272c6b8bd8343c47fd384c7db9356617a1d914",
+    "sourceCommit": "2cb50b368da3267446f2b6f6a3ddbd3d0eed3d73"
   }
 }

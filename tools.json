@@ -1,0 +1,63 @@
+[
+  {
+    "name": "vendor_recent_changes",
+    "description": "What a software vendor shipped recently — changelog entries, release notes and product announcements with the date and a link to the source. Built for account research and outreach timing: \"what did Stripe ship this month\", \"has Vercel released anything lately\", \"recent changes at supabase.com\". Look the vendor up by name or by domain (the domain is what a CRM or target list joins on). Returns each change with its published date, title, summary and URL. Says explicitly whether a vendor is tracked-but-quiet or not tracked at all, because those mean different things. Example: vendor_recent_changes({ vendor: \"stripe\", days: 30 }); vendor_recent_changes({ vendor: \"vercel.com\" }). Keyless.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "vendor": {
+          "type": "string",
+          "description": "Vendor name or domain, e.g. \"stripe\" or \"stripe.com\""
+        },
+        "days": {
+          "type": "number",
+          "description": "Look-back window in days (default 30, max 365)"
+        },
+        "limit": {
+          "type": "number",
+          "description": "Max changes to return (default 20, max 100)"
+        }
+      },
+      "required": [
+        "vendor"
+      ]
+    }
+  },
+  {
+    "name": "vendor_signal_sweep",
+    "description": "Recent shipping activity across every tracked software vendor at once, newest first — a single sweep for \"which of these accounts have been active this week\". Use for prospecting and account prioritisation rather than researching one company: it surfaces which vendors shipped, how many changes each had, and the latest headline per vendor. Optionally narrow to a set of domains to match a target list. Example: vendor_signal_sweep({ days: 7 }); vendor_signal_sweep({ domains: [\"stripe.com\", \"twilio.com\"], days: 14 }). Keyless.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "days": {
+          "type": "number",
+          "description": "Look-back window in days (default 7, max 90)"
+        },
+        "domains": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Restrict to these vendor domains"
+        },
+        "limit": {
+          "type": "number",
+          "description": "Max vendors to return (default 25, max 100)"
+        }
+      }
+    }
+  },
+  {
+    "name": "vendor_coverage",
+    "description": "Which software vendors are tracked for changelog and release activity, and how healthy each feed is — the vendor name, its domain, what kind of source is watched (changelog feed vs GitHub releases), when it was last polled successfully, and how many changes are on file. Call this before concluding a vendor has been quiet: a vendor that is not on this list has no data rather than no activity. Example: vendor_coverage({}); vendor_coverage({ vendor: \"stripe\" }). Keyless.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "vendor": {
+          "type": "string",
+          "description": "Optional — check one vendor by name or domain"
+        }
+      }
+    }
+  }
+]

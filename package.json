@@ -1,12 +1,20 @@
 {
   "name": "@pipeworx/mcp-vendor-signals",
-  "version": "0.1.2",
-  "description": "Vendor documentation and changelog change-tracking as ACCOUNT SIGNALS",
+  "version": "0.2.0",
+  "description": "Vendor documentation and changelog change-tracking as ACCOUNT SIGNALS (fleet #545).",
   "type": "module",
-  "main": "src/index.ts",
-  "types": "src/index.ts",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./tools.json": "./tools.json",
+    "./package.json": "./package.json"
+  },
   "bin": {
     "mcp-vendor-signals": "bin/cli.js"
+  },
+  "files": ["bin/", "lib/", "tools.json", "server.json"],
+  "engines": {
+    "node": ">=18"
   },
   "keywords": ["mcp", "mcp-server", "model-context-protocol", "pipeworx", "vendor-signals"],
   "license": "MIT",
@@ -14,19 +22,12 @@
     "type": "git",
     "url": "git+https://github.com/pipeworx-io/mcp-vendor-signals.git"
   },
-  "scripts": {
-    "typecheck": "tsc --noEmit"
-  },
-  "dependencies": {
-    "@modelcontextprotocol/sdk": "^1.30.0",
-    "tsx": "^4.19.0"
-  },
-  "devDependencies": {
-    "typescript": "^5.9.3",
-    "@cloudflare/workers-types": "^4.20260405.1"
-  },
+  "mcpName": "io.github.pipeworx-io/vendor-signals",
   "pipeworx": {
-    "sourceHash": "v1-5d2632c74c1cffddd72e784624272c6b8bd8343c47fd384c7db9356617a1d914",
-    "sourceCommit": "2cb50b368da3267446f2b6f6a3ddbd3d0eed3d73"
+    "mode": "gateway",
+    "slug": "vendor-signals",
+    "gatewaySlug": "vendor-signals",
+    "sourceHash": "v1-5ec4eec5540669ca80dd6ab1c1d3797ef93285b9084b1d236dab727aaba34ea7",
+    "sourceCommit": "98853f34516646cb7c4c1460f09249b262c0269e"
   }
 }
